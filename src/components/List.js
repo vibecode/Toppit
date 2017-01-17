@@ -29,7 +29,7 @@ class List extends Component {
     });
     this.updateState();
   }
-
+  //TODO on downwote make arrows red
   handleDownVote(itemId) {
     data.forEach((item) => {
       if (item.id === itemId) {

@@ -5,7 +5,7 @@ class ListItem extends Component {
   constructor(props) {
     super(props);
     this.handleUpVote = this.handleUpVote.bind(this);
-    this.handleDownVote = this.handleUpVote.bind(this);
+    this.handleDownVote = this.handleDownVote.bind(this);
 
   }
 
