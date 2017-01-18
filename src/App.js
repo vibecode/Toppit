@@ -6,7 +6,10 @@ import './App.css';
 class App extends Component {
   render() {
     return (
-        <List />
+        <div className='container'>
+          <h1 className='main-title'>TOP QUOTES</h1>
+          <List />
+        </div>
     );
   }
 }

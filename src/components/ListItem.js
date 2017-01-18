@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-
+import './ListItem.css';
+import { MdArrowDropDown, MdArrowDropUp } from 'react-icons/lib/md';
 
 class ListItem extends Component {
   constructor(props) {
@@ -21,44 +22,39 @@ class ListItem extends Component {
     return (
         <div className='item'>
           <div className='image'>
-            <img src={this.props.itemImageUrl} alt={this.props.itemAlt}/>
+            <img src={this.props.itemImageUrl} alt={this.props.itemAlt} />
           </div>
-          <div className='middle aligned content'>
-            <div className='ui grid'>
-              <div className='three wide column'>
-                <div className='ui basic center aligned segment'>
-                  <a onClick={this.handleUpVote}>
-                    <i className='large caret up icon'></i>
-                  </a>
-                  <p><b>{this.props.votes}</b></p>
-                  <a onClick={this.handleDownVote}>
-                    <i className='large caret down icon'></i>
-                  </a>
-                </div>
-              </div>
-              <div className='twelve wide column'>
-                <div className='header'>
+              <div className='content'>
+                <div className='content__header'>
                   <a href={this.props.url}>
                     {this.props.title}
                   </a>
                 </div>
-                <div className='meta'>
-                  <span></span>
+
+                <div className='content__description'>
+                  <p>{this.props.content}</p>
                 </div>
-                <div className='description'>
-                  <p>{this.props.description}</p>
-                </div>
-                <div className='extra'>
-                  <span>Submitted by:</span>
-                  <img
-                      className='ui avatar image'
-                      src={this.props.userAvatar}
-                      alt={this.props.userName}
-                  />
+
+                <div className='author'>
+                  <div className='avatar'>
+                    <img
+                        src={this.props.userAvatar}
+                        alt={this.props.userName}
+                    />
+                  </div>
+                  <span>{this.props.userName}</span>
                 </div>
               </div>
-            </div>
-          </div>
+
+              <div className='voter'>
+                  <a onClick={this.handleUpVote}>
+                    <MdArrowDropUp size={40} color='#666'/>
+                  </a>
+                  <p className='counter'>{this.props.votes}</p>
+                  <a onClick={this.handleDownVote}>
+                    <MdArrowDropDown size={40} color='#666'/>
+                  </a>
+              </div>
         </div>
     );
   }

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import ListItem from './ListItem';
 import data from '../data';
+import './List.css';
 
 class List extends Component {
   constructor(props) {
@@ -29,7 +30,7 @@ class List extends Component {
     });
     this.updateState();
   }
-  //TODO on downwote make arrows red
+
   handleDownVote(itemId) {
     data.forEach((item) => {
       if (item.id === itemId) {
@@ -40,19 +41,20 @@ class List extends Component {
   }
 
   render() {
-    const products = this.state.items.map((item) => {
+    const items = this.state.items.map((item) => {
       return (
           <ListItem
               key={item.id}
               id={item.id}
               title={item.title}
-              description={item.description}
+              content={item.content}
               url={item.url}
               itemAlt={item.title}
               itemImageUrl={item.itemImageUrl}
-              votes={item.votes}
-              submitter_avatar_url={item.userAvatar}
+              userAvatar={item.userAvatar}
               userAlt={item.userName}
+              userName={item.userName}
+              votes={item.votes}
               onUpVote={this.handleUpVote}
               onDownVote={this.handleDownVote}
           />
@@ -60,8 +62,8 @@ class List extends Component {
     });
 
     return (
-        <div className='ui items'>
-          {products}
+        <div className='list-container'>
+          {items}
         </div>
     );
   }
