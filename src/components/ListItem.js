@@ -50,7 +50,7 @@ class ListItem extends Component {
                   <a onClick={this.handleUpVote}>
                     <MdArrowDropUp size={40} color='#666'/>
                   </a>
-                  <p className='counter'>{this.props.votes}</p>
+                  <p className={`counter ${this.props.votes < 0 ? 'counter-red' : ''}`}>{this.props.votes}</p>
                   <a onClick={this.handleDownVote}>
                     <MdArrowDropDown size={40} color='#666'/>
                   </a>
