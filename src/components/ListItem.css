@@ -42,8 +42,15 @@ img {
     margin-right: 20px;
 }
 
-.voter {
+.voter svg {
+    width: 30px;
+    height: 40px
+}
 
+.voter a{
+    display: block;
+    width: 30px;
+    height: 20px;
 }
 
 .counter {
